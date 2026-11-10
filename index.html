@@ -6,6 +6,10 @@
   <title>Giuliante Soluciones Energéticas (GSE) | Ingeniería Eléctrica y Solar</title>
   <meta name="description" content="Especialistas en instalaciones solares fotovoltaicas industriales, institucionales, residenciales y utility en Tucumán y todo el NOA. Ingeniería certificada y garantía real.">
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/d/1CqKhyfXhviB6KdHUndqpWcSnUBvbkjd7">
+  <link rel="apple-touch-icon" href="assets/logo-icon.png">
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,12 +73,14 @@
       
       <!-- Logo GSE -->
       <a href="#inicio" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-lg bg-brand-yellow flex items-center justify-center font-heading font-black text-black text-2xl shadow-lg shadow-brand-yellow/20">
-          G
-        </div>
+        <img src="assets/logo-icon.png" alt="Giuliante Logo" class="h-10 w-auto object-contain drop-shadow-md">
         <div class="flex flex-col">
-          <span class="font-heading font-black tracking-widest text-lg leading-tight group-hover:text-brand-yellow transition-colors">GIULIANTE</span>
-          <span class="text-[10px] tracking-wider text-brand-grayMuted uppercase font-semibold">Soluciones Energéticas</span>
+          <span class="font-heading font-black tracking-widest text-lg leading-tight group-hover:text-brand-yellow transition-colors text-white">GIULIANTE</span>
+          <div class="flex items-center gap-1.5">
+            <span class="h-[2px] w-4 bg-brand-yellow"></span>
+            <span class="text-[9px] tracking-wider text-gray-300 uppercase font-semibold">Soluciones Energéticas</span>
+            <span class="h-[2px] w-4 bg-brand-yellow"></span>
+          </div>
         </div>
       </a>
 
@@ -117,11 +123,11 @@
 
   <!-- ================= HERO SECTION ================= -->
   <section id="inicio" class="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden min-h-[92vh] flex flex-col justify-between">
-    <!-- Imagen de fondo con paneles solares y atardecer -->
+    <!-- Imagen de fondo con paneles solares y atardecer oficial -->
     <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=2000&q=80" 
-           alt="Parque Solar Fotovoltaico" 
-           class="w-full h-full object-cover object-center brightness-60">
+      <img src="assets/hero-solar.jpg" 
+           alt="Parque Solar Fotovoltaico Giuliante" 
+           class="w-full h-full object-cover object-right md:object-center brightness-75">
       <div class="absolute inset-0 bg-hero-overlay"></div>
     </div>
 
@@ -736,12 +742,14 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
         <!-- Logo Footer -->
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded bg-brand-yellow flex items-center justify-center font-heading font-black text-black text-lg">
-            G
-          </div>
+          <img src="assets/logo-icon.png" alt="Giuliante Logo" class="h-9 w-auto object-contain">
           <div>
-            <span class="font-heading font-black text-white text-base tracking-widest block">GIULIANTE</span>
-            <span class="text-[10px] text-gray-400 tracking-wider uppercase">Soluciones Energéticas · Tucumán</span>
+            <span class="font-heading font-black text-white text-base tracking-widest block leading-tight">GIULIANTE</span>
+            <div class="flex items-center gap-1.5">
+              <span class="h-[1.5px] w-3 bg-brand-yellow"></span>
+              <span class="text-[9px] text-gray-400 tracking-wider uppercase font-semibold">Soluciones Energéticas · Tucumán</span>
+              <span class="h-[1.5px] w-3 bg-brand-yellow"></span>
+            </div>
           </div>
         </div>
 
