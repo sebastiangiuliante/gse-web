@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giuliante Soluciones Energéticas (GSE) | Ingeniería Eléctrica y Solar</title>
+  <meta name="description" content="Especialistas en instalaciones solares fotovoltaicas industriales, institucionales, residenciales y utility en Tucumán y todo el NOA. Ingeniería certificada y garantía real.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#F5A623',       /* Amarillo energético Figma */
+              yellowHover: '#E09612',
+              yellowLight: '#FFC837',
+              dark: '#0D0E12',          /* Fondo ultra oscuro */
+              card: '#15171E',          /* Fondo tarjetas */
+              cardBorder: '#232733',
+              grayMuted: '#9E9E9E',
+            }
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Estilos personalizados para emular la estética del diseño en Figma */
+    .bg-hero-overlay {
+      background: linear-gradient(180deg, rgba(13,14,18,0.78) 0%, rgba(13,14,18,0.92) 85%, #0D0E12 100%),
+                  radial-gradient(circle at 75% 25%, rgba(245, 166, 35, 0.18) 0%, transparent 60%);
+    }
+    .text-stroke-yellow {
+      text-shadow: 0 0 25px rgba(245, 166, 35, 0.35);
+    }
+    .card-glass {
+      background: rgba(21, 23, 30, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .card-glass:hover {
+      border-color: rgba(245, 166, 35, 0.4);
+      transform: translateY(-3px);
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased selection:bg-brand-yellow selection:text-black">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo GSE -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg bg-brand-yellow flex items-center justify-center font-heading font-black text-black text-2xl shadow-lg shadow-brand-yellow/20">
+          G
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-black tracking-widest text-lg leading-tight group-hover:text-brand-yellow transition-colors">GIULIANTE</span>
+          <span class="text-[10px] tracking-wider text-brand-grayMuted uppercase font-semibold">Soluciones Energéticas</span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider text-gray-300">
+        <a href="#inicio" class="hover:text-brand-yellow transition-colors">Inicio</a>
+        <a href="#servicios" class="hover:text-brand-yellow transition-colors">Servicios</a>
+        <a href="#proyectos" class="hover:text-brand-yellow transition-colors">Proyectos</a>
+        <a href="#nosotros" class="hover:text-brand-yellow transition-colors">Nosotros</a>
+        <a href="#contacto" class="hover:text-brand-yellow transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Desktop CTA Button -->
+      <div class="hidden md:block">
+        <a href="#contacto" class="bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-bold text-xs uppercase px-5 py-3 rounded tracking-wider shadow-md shadow-brand-yellow/25 transition-all duration-200 inline-block hover:scale-105">
+          Solicitar Presupuesto
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" aria-label="Abrir Menú" class="md:hidden text-white hover:text-brand-yellow p-2 focus:outline-none">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden bg-brand-card border-b border-brand-cardBorder px-6 py-6 transition-all">
+      <nav class="flex flex-col gap-4 text-base font-semibold uppercase">
+        <a href="#inicio" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Inicio</a>
+        <a href="#servicios" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Servicios</a>
+        <a href="#proyectos" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Proyectos</a>
+        <a href="#nosotros" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Nosotros</a>
+        <a href="#contacto" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Contacto</a>
+        <a href="#contacto" class="mobile-link mt-2 bg-brand-yellow text-black font-heading font-bold text-center py-3 rounded text-sm uppercase">
+          Solicitar Presupuesto
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section id="inicio" class="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden min-h-[92vh] flex flex-col justify-between">
+    <!-- Imagen de fondo con paneles solares y atardecer -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=2000&q=80" 
+           alt="Parque Solar Fotovoltaico" 
+           class="w-full h-full object-cover object-center brightness-60">
+      <div class="absolute inset-0 bg-hero-overlay"></div>
+    </div>
+
+    <!-- Contenido Principal Hero -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4 md:mt-8">
+      
+      <!-- Ubicación / Badge -->
+      <div class="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-widest text-brand-yellow font-heading font-bold mb-4">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>SAN MIGUEL DE TUCUMÁN · ARGENTINA</span>
+      </div>
+
+      <!-- Título Principal Impactante -->
+      <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl uppercase leading-tight tracking-tight max-w-4xl text-white">
+        ENERGÍA QUE <span class="text-white">PRODUCE</span><br>
+        <span class="text-brand-yellow text-stroke-yellow">INGENIERÍA QUE RESPONDE</span>
+      </h1>
+
+      <!-- Bajada / Subtítulo -->
+      <p class="mt-6 text-gray-300 text-base sm:text-xl max-w-2xl font-normal leading-relaxed">
+        Soluciones eléctricas y fotovoltaicas a medida de tus necesidades. Desde proyectos residenciales e industriales hasta instalaciones utility de gran escala.
+      </p>
+
+      <!-- Botones de Acción (CTAs) -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 sm:items-center">
+        <a href="#contacto" class="bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-bold px-8 py-4 rounded text-sm uppercase tracking-wider text-center shadow-lg shadow-brand-yellow/20 transition-all hover:scale-105">
+          Solicitar Asesoramiento
+        </a>
+        <a href="#servicios" class="border border-white/40 hover:border-brand-yellow hover:text-brand-yellow text-white font-heading font-semibold px-8 py-4 rounded text-sm uppercase tracking-wider text-center transition-all bg-black/20 backdrop-blur-sm">
+          Ver Servicios
+        </a>
+      </div>
+    </div>
+
+    <!-- ================= 4 SERVICIOS CLAVE (OVERLAY SOBRE EL HERO) ================= -->
+    <div id="servicios" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-16 md:mt-24">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Tarjeta 1: Energía Fotovoltaica -->
+        <div class="card-glass p-6 rounded-lg transition-all">
+          <div class="w-12 h-12 rounded bg-brand-yellow/10 flex items-center justify-center text-brand-yellow mb-4">
+            <i data-lucide="sun-medium" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-bold text-base uppercase text-white tracking-wide">
+            Energía Fotovoltaica
+          </h3>
+          <p class="mt-2 text-xs leading-relaxed text-gray-400">
+            Sistemas On-grid, Híbridos y Off-grid para hogares, industrias y proyectos de escala utility con servicio técnico y postventa local.
+          </p>
+        </div>
+
+        <!-- Tarjeta 2: Instalaciones Eléctricas -->
+        <div class="card-glass p-6 rounded-lg transition-all">
+          <div class="w-12 h-12 rounded bg-brand-yellow/10 flex items-center justify-center text-brand-yellow mb-4">
+            <i data-lucide="factory" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-bold text-base uppercase text-white tracking-wide">
+            Instalaciones Eléctricas
+          </h3>
+          <p class="mt-2 text-xs leading-relaxed text-gray-400">
+            Montajes e instalaciones eléctricas llave en mano a medida para plantas industriales, comercios y proyectos residenciales de alta exigencia.
+          </p>
+        </div>
+
+        <!-- Tarjeta 3: Ingeniería y Automatización -->
+        <div class="card-glass p-6 rounded-lg transition-all">
+          <div class="w-12 h-12 rounded bg-brand-yellow/10 flex items-center justify-center text-brand-yellow mb-4">
+            <i data-lucide="cpu" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-bold text-base uppercase text-white tracking-wide">
+            Ingeniería y Automatización
+          </h3>
+          <p class="mt-2 text-xs leading-relaxed text-gray-400">
+            Estudios de carga, calidad de energía, compensación de reactiva, automatismo de procesos y auditorías técnicas certificadas.
+          </p>
+        </div>
+
+        <!-- Tarjeta 4: Puesta a Tierra y Seguridad -->
+        <div class="card-glass p-6 rounded-lg transition-all">
+          <div class="w-12 h-12 rounded bg-brand-yellow/10 flex items-center justify-center text-brand-yellow mb-4">
+            <i data-lucide="shield-alert" class="w-7 h-7"></i>
+          </div>
+          <h3 class="font-heading font-bold text-base uppercase text-white tracking-wide">
+            Puesta a Tierra y Seguridad
+          </h3>
+          <p class="mt-2 text-xs leading-relaxed text-gray-400">
+            Mediciones de aislación, protocolos de puesta a tierra reglamentarios, descargadores de sobretensión y adecuación a normativas vigentes.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST BAR (MÉTRICAS / SOCIAL PROOF) ================= -->
+  <section class="bg-white text-brand-dark py-6 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        
+        <div class="flex items-center justify-center gap-3">
+          <i data-lucide="building-2" class="w-6 h-6 text-brand-yellowHover shrink-0"></i>
+          <div class="text-left">
+            <span class="block font-heading font-extrabold text-lg leading-tight">+100 PROYECTOS</span>
+            <span class="text-[11px] font-semibold text-gray-600 uppercase">Realizados con éxito</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3">
+          <i data-lucide="award" class="w-6 h-6 text-brand-yellowHover shrink-0"></i>
+          <div class="text-left">
+            <span class="block font-heading font-extrabold text-lg leading-tight">INGENIERÍA</span>
+            <span class="text-[11px] font-semibold text-gray-600 uppercase">Certificada y habilitada</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3">
+          <i data-lucide="compass" class="w-6 h-6 text-brand-yellowHover shrink-0"></i>
+          <div class="text-left">
+            <span class="block font-heading font-extrabold text-lg leading-tight">COBERTURA NOA</span>
+            <span class="text-[11px] font-semibold text-gray-600 uppercase">Tucumán, Catamarca y región</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-3">
+          <i data-lucide="shield-check" class="w-6 h-6 text-brand-yellowHover shrink-0"></i>
+          <div class="text-left">
+            <span class="block font-heading font-extrabold text-lg leading-tight">GARANTÍA REAL</span>
+            <span class="text-[11px] font-semibold text-gray-600 uppercase">Materiales y mano de obra</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= QUIÉNES SOMOS ================= -->
+  <section id="nosotros" class="py-20 md:py-28 bg-brand-dark border-b border-brand-cardBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Imagen Realista de Ingeniería Solar en Techo / Instalación -->
+        <div class="relative group">
+          <div class="absolute -inset-2 bg-brand-yellow/20 rounded-xl blur-lg group-hover:bg-brand-yellow/30 transition-all duration-300"></div>
+          <div class="relative overflow-hidden rounded-lg border border-brand-cardBorder aspect-[4/3]">
+            <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Ingenieros instalando paneles solares en planta" 
+                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute bottom-4 left-4 right-4 bg-brand-card/90 backdrop-blur-md p-4 rounded border border-white/10 text-xs">
+              <span class="font-heading font-bold text-brand-yellow uppercase">Equipo Técnico Especializado</span>
+              <p class="text-gray-300 text-[11px] mt-0.5">Ingenieros y técnicos matriculados en montaje fotovoltaico y distribución eléctrica.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contenido Institucional -->
+        <div>
+          <span class="text-brand-yellow font-heading font-bold text-xs uppercase tracking-widest">Quiénes Somos</span>
+          <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight mt-2 text-white">
+            INGENIERÍA LOCAL.<br>
+            <span class="text-brand-yellow">COMPROMISO REAL.</span>
+          </h2>
+
+          <div class="mt-6 space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
+            <p>
+              Somos una empresa tucumana referente en <strong class="text-white">ingeniería eléctrica e instalaciones solares fotovoltaicas</strong>. Acompañamos a industrias, instituciones de salud, comercios y hogares a optimizar su consumo energético y alcanzar la independencia con tecnologías de vanguardia.
+            </p>
+            <p>
+              Contamos con experiencia comprobada en todo el abanico fotovoltaico: desde sistemas residenciales hasta obras de envergadura como los <strong class="text-white">300 kWp para la Maternidad de Tucumán</strong> y <strong class="text-white">40 kWp en laboratorios de Catamarca</strong>.
+            </p>
+            <p>
+              Trabajamos con primeras marcas mundiales (Tier 1) para garantizar máxima generación, retorno de inversión previsible y servicio postventa en todo el Noroeste Argentino.
+            </p>
+          </div>
+
+          <!-- Estadísticas destacadas -->
+          <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-white/10">
+            <div>
+              <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">+3000</span>
+              <span class="text-xs uppercase font-semibold text-gray-400">kW Instalados</span>
+            </div>
+            <div>
+              <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">12</span>
+              <span class="text-xs uppercase font-semibold text-gray-400">Años de Exp.</span>
+            </div>
+            <div>
+              <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">+100</span>
+              <span class="text-xs uppercase font-semibold text-gray-400">Proyectos Listos</span>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <a href="#contacto" class="inline-block bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-bold px-7 py-3.5 rounded text-xs uppercase tracking-wider transition-all shadow-md shadow-brand-yellow/20">
+              Contactar al Equipo
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROYECTOS DESTACADOS ================= -->
+  <section id="proyectos" class="py-20 md:py-28 bg-[#111217]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-brand-yellow font-heading font-bold text-xs uppercase tracking-widest">Casos de Éxito</span>
+          <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight mt-2 text-white">
+            PROYECTOS <span class="text-brand-yellow">DESTACADOS</span>
+          </h2>
+        </div>
+        <p class="text-gray-400 text-sm max-w-md mt-4 md:mt-0">
+          Soluciones ejecutadas con los más altos estándares de ingeniería eléctrica y fotovoltaica en el NOA.
+        </p>
+      </div>
+
+      <!-- Grid de Proyectos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Proyecto 1: Maternidad de Tucumán (PROYECTO ANCLA DE PRESTIGIO) -->
+        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1508873696983-2df57046475a?auto=format&fit=crop&w=800&q=80" 
+                 alt="Proyecto Solar Maternidad Tucumán" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-brand-yellow text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Salud Pública · Gran Escala
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Maternidad de Tucumán — 300 kWp
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema solar fotovoltaico de alta potencia para abastecimiento crítico hospitalario. Generación continua, reducción sustancial de costos operativos e inyección controlada.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>San Miguel de Tucumán</span>
+              <span>300 kWp On-Grid</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2: Laboratorio en Catamarca -->
+        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558441719-8b489c63f771?auto=format&fit=crop&w=800&q=80" 
+                 alt="Planta fotovoltaica laboratorio Catamarca" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-brand-yellow text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Laboratorio · Industrial
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Laboratorio Farmacéutico — 40 kWp
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Instalación solar con monitoreo inteligente de consumos para industria de procesos continuos. Garantía de continuidad operativa y mitigación de fluctuaciones de red.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Catamarca</span>
+              <span>40 kWp Comercial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3: Nave Industrial -->
+        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Nave Industrial Solar" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-brand-yellow text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Nave Industrial
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Nave Industrial — 50 kW On-Grid
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema On-Grid sin inyección a la red, cubriendo el 90% del uso diario de operación en horario productivo. Cero costo de baterías agregadas.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Parque Industrial Tucumán</span>
+              <span>Ahorro 90% Diurno</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 4: Vivienda Unifamiliar -->
+        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=800&q=80" 
+                 alt="Vivienda Unifamiliar Solar" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-white text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Vivienda Unifamiliar
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Residencial — 3 kW On-Grid
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema On-Grid residencial con ahorro estimado de más del 40% en la factura eléctrica mensual. Sin mantenimiento y con monitoreo remoto en smartphone.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Yerba Buena, Tucumán</span>
+              <span>Ahorro Mensual 40%+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 5: Vivienda Fin de Semana Híbrido -->
+        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=800&q=80" 
+                 alt="Vivienda fin de semana híbrido" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-white text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Vivienda Fin de Semana
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Sistema Híbrido — 5 kW con LiFePO4
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema híbrido con acumulación en baterías de Litio Ferro-Fosfato (LiFePO4). 100% de cobertura y autonomía absoluta ante cortes de energía en la zona.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Tafí del Valle, Tucumán</span>
+              <span>Autonomía 24/7</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Call to Action / Banner integrado -->
+        <div class="bg-brand-yellow text-black p-8 rounded-lg flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="w-12 h-12 rounded bg-black/10 flex items-center justify-center mb-6">
+              <i data-lucide="zap" class="w-7 h-7 text-black"></i>
+            </div>
+            <span class="font-heading font-extrabold text-xs uppercase tracking-wider text-black/80">Soluciones a Medida</span>
+            <h3 class="font-heading font-black text-2xl uppercase mt-2 leading-tight">
+              Cada proyecto es único. Cada solución también.
+            </h3>
+            <p class="text-sm mt-3 text-black/80 font-medium leading-relaxed">
+              Realizamos el relevamiento en tu planta o domicilio y calculamos tu período exacto de amortización sin cargo.
+            </p>
+          </div>
+          <div class="mt-8">
+            <a href="#contacto" class="block w-full bg-black hover:bg-neutral-900 text-white font-heading font-bold text-xs uppercase py-4 rounded text-center tracking-wider transition-all">
+              Hablemos de tu Proyecto
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Banner Calidad Garantizada -->
+      <div class="mt-10 p-6 rounded-lg bg-brand-card border border-brand-cardBorder flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <div class="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-yellow shrink-0">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-sm uppercase text-white tracking-wide">Calidad y Seguridad Garantizada</h4>
+          <p class="text-xs text-gray-400 mt-0.5">Todos nuestros trabajos cuentan con garantía extendida, materiales de primera línea certificados internacionalmente e ingeniería de respaldo matriculada.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIOS ================= -->
+  <section class="py-20 bg-brand-dark border-b border-brand-cardBorder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-yellow font-heading font-bold text-xs uppercase tracking-widest">Lo que dicen nuestros clientes</span>
+        <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight mt-2 text-white">
+          RESULTADOS QUE <span class="text-brand-yellow">HABLAN POR SÍ SOLOS</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Testimonio 1 -->
+        <div class="card-glass p-8 rounded-lg flex flex-col justify-between">
+          <div>
+            <div class="flex text-brand-yellow gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic leading-relaxed">
+              "Redujimos el costo de la factura en más de un 55% desde el primer mes. La instalación fue impecable, prolija y en los plazos que prometieron."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-10 h-10 rounded bg-brand-yellow text-black font-heading font-black flex items-center justify-center text-sm">
+              R
+            </div>
+            <div>
+              <span class="font-heading font-bold text-sm text-white block">Ricardo Álvarez</span>
+              <span class="text-xs text-gray-400">Propietario · Yerba Buena</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 2 -->
+        <div class="card-glass p-8 rounded-lg flex flex-col justify-between">
+          <div>
+            <div class="flex text-brand-yellow gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic leading-relaxed">
+              "Instalamos la primera etapa en nuestra clínica y los resultados fueron tan contundentes que ya avanzamos con la ampliación. Excelente asesoramiento técnico."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-10 h-10 rounded bg-brand-yellow text-black font-heading font-black flex items-center justify-center text-sm">
+              L
+            </div>
+            <div>
+              <span class="font-heading font-bold text-sm text-white block">Dra. Laura Fernández</span>
+              <span class="text-xs text-gray-400">Directora · Clínica San Miguel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 3 -->
+        <div class="card-glass p-8 rounded-lg flex flex-col justify-between">
+          <div>
+            <div class="flex text-brand-yellow gap-1 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-sm text-gray-300 italic leading-relaxed">
+              "Redujimos drásticamente los costos energéticos de planta. El retorno de inversión es palpable y la estabilidad del sistema es total. Muy conformes."
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+            <div class="w-10 h-10 rounded bg-brand-yellow text-black font-heading font-black flex items-center justify-center text-sm">
+              M
+            </div>
+            <div>
+              <span class="font-heading font-bold text-sm text-white block">Ing. Martín Soria</span>
+              <span class="text-xs text-gray-400">Gerente Industrial · Tucumán</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO Y COTIZADOR ================= -->
+  <section id="contacto" class="py-20 md:py-28 bg-[#0D0E12]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Datos de Contacto (Columna Izquierda) -->
+        <div class="lg:col-span-5 space-y-8">
+          <div>
+            <span class="text-brand-yellow font-heading font-bold text-xs uppercase tracking-widest">Contacto Directo</span>
+            <h2 class="font-heading font-black text-3xl sm:text-4xl uppercase text-white mt-2">
+              COTIZÁ TU PROYECTO <span class="text-brand-yellow">HOY MISMO</span>
+            </h2>
+            <p class="mt-3 text-sm text-gray-400 leading-relaxed">
+              Estamos en San Miguel de Tucumán y atendemos proyectos en toda la región. Comunicate con nuestro equipo técnico para un relevamiento personalizado.
+            </p>
+          </div>
+
+          <!-- Items de contacto con estilo idéntico a Figma -->
+          <div class="space-y-6 pt-4 border-t border-white/10">
+            
+            <div class="flex items-start gap-4">
+              <span class="font-heading font-bold text-xs uppercase text-brand-yellow w-36 shrink-0 pt-0.5">DIRECCIÓN</span>
+              <span class="text-sm text-gray-300">Viamonte 953, San Miguel de Tucumán, Argentina</span>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <span class="font-heading font-bold text-xs uppercase text-brand-yellow w-36 shrink-0 pt-0.5">TELÉFONO / WA</span>
+              <div>
+                <a href="https://wa.me/5493813005341" target="_blank" rel="noopener" class="text-sm text-white hover:text-brand-yellow font-semibold transition-colors">
+                  +54 381 300-5341
+                </a>
+                <span class="block text-[11px] text-gray-500">Atención técnica inmediata</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <span class="font-heading font-bold text-xs uppercase text-brand-yellow w-36 shrink-0 pt-0.5">EMAIL</span>
+              <a href="mailto:info@giuliante.com.ar" class="text-sm text-white hover:text-brand-yellow transition-colors">
+                info@giuliante.com.ar
+              </a>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <span class="font-heading font-bold text-xs uppercase text-brand-yellow w-36 shrink-0 pt-0.5">HORARIO</span>
+              <span class="text-sm text-gray-300">Lunes a Viernes de 8:00 a 18:00 hs</span>
+            </div>
+
+          </div>
+
+          <!-- Botón de WhatsApp Directo con texto personalizado -->
+          <div class="pt-4">
+            <a href="https://wa.me/5493813005341?text=Hola%20Giuliante%20Soluciones%20Energ%C3%A9ticas,%20me%20gustar%C3%ADa%20solicitar%20un%20asesoramiento%20t%C3%A9cnico%20para%20un%20proyecto." 
+               target="_blank" rel="noopener"
+               class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-black font-heading font-bold text-xs uppercase px-6 py-3.5 rounded tracking-wider shadow-lg transition-all hover:scale-105">
+              <i data-lucide="message-circle" class="w-5 h-5 text-black"></i>
+              <span>Consultar Directo por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulario de Presupuesto (Columna Derecha: Resuelve el espacio vacío del Figma) -->
+        <div class="lg:col-span-7 bg-brand-card p-8 sm:p-10 rounded-xl border border-brand-cardBorder shadow-2xl relative">
+          
+          <div class="mb-6">
+            <h3 class="font-heading font-bold text-xl uppercase text-white">Solicitar Presupuesto Gratuito</h3>
+            <p class="text-xs text-brand-yellow uppercase tracking-wider font-semibold mt-1">Sin compromiso · Respuesta técnica en menos de 24 hs</p>
+          </div>
+
+          <form id="contactForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="nombre" class="block text-xs font-semibold uppercase text-gray-400 mb-1">Nombre Completo *</label>
+                <input type="text" id="nombre" required placeholder="Ej: Ing. Juan Pérez"
+                       class="w-full bg-[#0D0E12] border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-yellow transition-colors">
+              </div>
+
+              <div>
+                <label for="telefono" class="block text-xs font-semibold uppercase text-gray-400 mb-1">Teléfono / WhatsApp *</label>
+                <input type="tel" id="telefono" required placeholder="Ej: +54 381 123-4567"
+                       class="w-full bg-[#0D0E12] border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-yellow transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="email" class="block text-xs font-semibold uppercase text-gray-400 mb-1">Correo Electrónico</label>
+                <input type="email" id="email" placeholder="correo@empresa.com"
+                       class="w-full bg-[#0D0E12] border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-yellow transition-colors">
+              </div>
+
+              <div>
+                <label for="tipo" class="block text-xs font-semibold uppercase text-gray-400 mb-1">Tipo de Proyecto *</label>
+                <select id="tipo" required class="w-full bg-[#0D0E12] border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-yellow transition-colors">
+                  <option value="" disabled selected>Seleccioná una opción...</option>
+                  <option value="industrial">Planta Industrial / Comercial</option>
+                  <option value="institucional">Institución / Salud / Utility</option>
+                  <option value="residencial">Vivienda Residencial / Casa Quinta</option>
+                  <option value="electrico">Instalación Eléctrica / Automatización</option>
+                  <option value="puestatierra">Puesta a Tierra / Certificación</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="mensaje" class="block text-xs font-semibold uppercase text-gray-400 mb-1">Detalles del Proyecto o Consumo Aprox.</label>
+              <textarea id="mensaje" rows="4" placeholder="Comentanos si tenés estimado el gasto mensual de electricidad, ubicación o características de tu instalación..."
+                        class="w-full bg-[#0D0E12] border border-white/10 rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-yellow transition-colors resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-black text-sm uppercase py-4 rounded tracking-wider shadow-lg shadow-brand-yellow/20 transition-all hover:scale-[1.02] flex items-center justify-center gap-2">
+              <span>ENVIAR SOLICITUD DE PRESUPUESTO</span>
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+          </form>
+
+          <!-- Mensaje de éxito -->
+          <div id="formSuccess" class="hidden mt-4 p-4 rounded bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs">
+            ¡Muchas gracias! Tu consulta fue registrada. También se abrirá WhatsApp para que puedas chatear directamente si lo preferís.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-black py-12 border-t border-white/10 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
+        <!-- Logo Footer -->
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded bg-brand-yellow flex items-center justify-center font-heading font-black text-black text-lg">
+            G
+          </div>
+          <div>
+            <span class="font-heading font-black text-white text-base tracking-widest block">GIULIANTE</span>
+            <span class="text-[10px] text-gray-400 tracking-wider uppercase">Soluciones Energéticas · Tucumán</span>
+          </div>
+        </div>
+
+        <!-- Enlaces Footer -->
+        <nav class="flex flex-wrap justify-center gap-6 text-gray-400 font-semibold uppercase">
+          <a href="#inicio" class="hover:text-brand-yellow transition-colors">Inicio</a>
+          <a href="#servicios" class="hover:text-brand-yellow transition-colors">Servicios</a>
+          <a href="#proyectos" class="hover:text-brand-yellow transition-colors">Proyectos</a>
+          <a href="#nosotros" class="hover:text-brand-yellow transition-colors">Nosotros</a>
+          <a href="#contacto" class="hover:text-brand-yellow transition-colors">Contacto</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-gray-500 text-[11px] gap-4">
+        <p>© 2026 Giuliante Soluciones Energéticas. Todos los derechos reservados.</p>
+        <p>San Miguel de Tucumán · Argentina</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= BOTÓN FLOTANTE DE WHATSAPP ================= -->
+  <a href="https://wa.me/5493813005341?text=Hola%20Giuliante%20Soluciones%20Energ%C3%A9ticas,%20quisiera%20solicitar%20un%20presupuesto." 
+     target="_blank" rel="noopener" 
+     aria-label="Contactar por WhatsApp"
+     class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-2xl shadow-green-900/50 hover:scale-110 transition-all duration-300 group">
+    <span class="absolute -top-10 right-0 bg-brand-card text-white text-[10px] font-semibold py-1 px-3 rounded shadow-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+      ¡Consultanos ahora!
+    </span>
+    <i data-lucide="message-circle" class="w-8 h-8 fill-white text-[#25D366]"></i>
+  </a>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // Inicializar íconos Lucide
+    lucide.createIcons();
+
+    // Menú Hamburguesa Móvil
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Formulario de Contacto / Cotizador con apertura directa de WhatsApp
+    const form = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const telefono = document.getElementById('telefono').value;
+      const email = document.getElementById('email').value || 'No indicado';
+      const tipo = document.getElementById('tipo').value;
+      const mensaje = document.getElementById('mensaje').value || 'Sin detalles adicionales';
+
+      // Mensaje formateado para WhatsApp
+      const waText = encodeURIComponent(
+        `*Nueva Consulta desde la Web - GSE*\n\n` +
+        `👤 *Nombre:* ${nombre}\n` +
+        `📱 *Teléfono:* ${telefono}\n` +
+        `✉️ *Email:* ${email}\n` +
+        `⚡ *Tipo de Proyecto:* ${tipo}\n` +
+        `📝 *Detalles:* ${mensaje}`
+      );
+
+      formSuccess.classList.remove('hidden');
+
+      // Abre WhatsApp directamente con todos los datos precargados para que no se pierda la consulta
+      setTimeout(() => {
+        window.open(`https://wa.me/5493813005341?text=${waText}`, '_blank');
+      }, 700);
+    });
+  </script>
+</body>
+</html>
