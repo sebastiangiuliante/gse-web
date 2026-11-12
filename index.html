@@ -63,6 +63,20 @@
       transform: translateY(-3px);
       transition: all 0.3s ease;
     }
+    /* Animación de carrusel continuo de derecha a izquierda con pausa al hover */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: marqueeScroll 45s linear infinite;
+    }
+    .marquee-wrapper:hover .marquee-track {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 <body class="bg-brand-dark text-white font-sans antialiased selection:bg-brand-yellow selection:text-black">
@@ -267,12 +281,12 @@
   <!-- ================= QUIÉNES SOMOS ================= -->
   <section id="nosotros" class="py-20 md:py-28 bg-brand-dark border-b border-brand-cardBorder">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
         
-        <!-- Imagen Realista de Ingeniería Solar en Techo / Instalación -->
-        <div class="relative group">
+        <!-- Imagen Realista de Ingeniería Solar en Techo (Alineada desde el título hasta el botón) -->
+        <div class="relative group h-full flex flex-col justify-stretch">
           <div class="absolute -inset-2 bg-brand-yellow/20 rounded-xl blur-lg group-hover:bg-brand-yellow/30 transition-all duration-300"></div>
-          <div class="relative overflow-hidden rounded-lg border border-brand-cardBorder aspect-[4/3]">
+          <div class="relative overflow-hidden rounded-lg border border-brand-cardBorder w-full h-full min-h-[360px] lg:min-h-0 flex-1">
             <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=80" 
                  alt="Ingenieros instalando paneles solares en planta" 
                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
@@ -283,46 +297,50 @@
           </div>
         </div>
 
-        <!-- Contenido Institucional -->
-        <div>
-          <span class="text-brand-yellow font-heading font-bold text-xs uppercase tracking-widest">Quiénes Somos</span>
-          <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight mt-2 text-white">
-            INGENIERÍA LOCAL.<br>
-            <span class="text-brand-yellow">COMPROMISO REAL.</span>
-          </h2>
+        <!-- Contenido Institucional (Alineado verticalmente con la imagen) -->
+        <div class="flex flex-col justify-between">
+          <div>
+            <span class="text-brand-yellow font-heading font-bold text-xs uppercase tracking-widest">Quiénes Somos</span>
+            <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight mt-2 text-white">
+              INGENIERÍA LOCAL.<br>
+              <span class="text-brand-yellow">COMPROMISO REAL.</span>
+            </h2>
 
-          <div class="mt-6 space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
-            <p>
-              Somos una empresa tucumana referente en <strong class="text-white">ingeniería eléctrica e instalaciones solares fotovoltaicas</strong>. Acompañamos a industrias, instituciones de salud, comercios y hogares a optimizar su consumo energético y alcanzar la independencia con tecnologías de vanguardia.
-            </p>
-            <p>
-              Contamos con experiencia comprobada en todo el abanico fotovoltaico: desde sistemas residenciales hasta obras de envergadura como los <strong class="text-white">300 kWp para la Maternidad de Tucumán</strong> y <strong class="text-white">40 kWp en laboratorios de Catamarca</strong>.
-            </p>
-            <p>
-              Trabajamos con primeras marcas mundiales (Tier 1) para garantizar máxima generación, retorno de inversión previsible y servicio postventa en todo el Noroeste Argentino.
-            </p>
-          </div>
-
-          <!-- Estadísticas destacadas -->
-          <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-white/10">
-            <div>
-              <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">+3000</span>
-              <span class="text-xs uppercase font-semibold text-gray-400">kW Instalados</span>
-            </div>
-            <div>
-              <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">12</span>
-              <span class="text-xs uppercase font-semibold text-gray-400">Años de Exp.</span>
-            </div>
-            <div>
-              <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">+100</span>
-              <span class="text-xs uppercase font-semibold text-gray-400">Proyectos Listos</span>
+            <div class="mt-6 space-y-4 text-gray-300 text-sm sm:text-base leading-relaxed">
+              <p>
+                Somos una empresa tucumana referente en <strong class="text-white">ingeniería eléctrica e instalaciones solares fotovoltaicas</strong>. Acompañamos a industrias, instituciones de salud, comercios y hogares a optimizar su consumo energético y alcanzar la independencia con tecnologías de vanguardia.
+              </p>
+              <p>
+                Contamos con experiencia comprobada en todo el abanico fotovoltaico, para instalaciones desde sistemas residenciales hasta obras de gran envergadura llave en mano con soporte integral de principio a fin.
+              </p>
+              <p>
+                Trabajamos con primeras marcas mundiales (Tier 1) para garantizar máxima generación, retorno de inversión previsible y servicio postventa en todo el Noroeste Argentino.
+              </p>
             </div>
           </div>
 
+          <!-- Estadísticas destacadas y Botón -->
           <div class="mt-8">
-            <a href="#contacto" class="inline-block bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-bold px-7 py-3.5 rounded text-xs uppercase tracking-wider transition-all shadow-md shadow-brand-yellow/20">
-              Contactar al Equipo
-            </a>
+            <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10">
+              <div>
+                <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">+3000</span>
+                <span class="text-xs uppercase font-semibold text-gray-400">kW Instalados</span>
+              </div>
+              <div>
+                <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">12</span>
+                <span class="text-xs uppercase font-semibold text-gray-400">Años de Exp.</span>
+              </div>
+              <div>
+                <span class="font-heading font-black text-3xl sm:text-4xl text-brand-yellow block">+100</span>
+                <span class="text-xs uppercase font-semibold text-gray-400">Proyectos Listos</span>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <a href="#contacto" class="inline-block bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-bold px-8 py-3.5 rounded text-xs uppercase tracking-wider transition-all shadow-md shadow-brand-yellow/20 hover:scale-105">
+                Contactanos
+              </a>
+            </div>
           </div>
         </div>
 
@@ -330,11 +348,10 @@
     </div>
   </section>
 
-  <!-- ================= PROYECTOS DESTACADOS ================= -->
-  <section id="proyectos" class="py-20 md:py-28 bg-[#111217]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+  <!-- ================= PROYECTOS DESTACADOS (CARRUSEL CONTINUO DERECHA A IZQUIERDA) ================= -->
+  <section id="proyectos" class="py-20 md:py-28 bg-[#111217] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between">
         <div>
           <span class="text-brand-yellow font-heading font-bold text-xs uppercase tracking-widest">Casos de Éxito</span>
           <h2 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight mt-2 text-white">
@@ -342,15 +359,18 @@
           </h2>
         </div>
         <p class="text-gray-400 text-sm max-w-md mt-4 md:mt-0">
-          Soluciones ejecutadas con los más altos estándares de ingeniería eléctrica y fotovoltaica en el NOA.
+          Soluciones ejecutadas con los más altos estándares de ingeniería eléctrica y fotovoltaica en el NOA y NEA.
         </p>
       </div>
+    </div>
 
-      <!-- Grid de Proyectos -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Carrusel Continuo con Pausa al Hover -->
+    <div class="marquee-wrapper relative w-full overflow-hidden py-4 cursor-grab">
+      <div class="marquee-track">
 
-        <!-- Proyecto 1: Maternidad de Tucumán (PROYECTO ANCLA DE PRESTIGIO) -->
-        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+        <!-- ================= LOOP 1 ================= -->
+        <!-- Proyecto 1: Maternidad de Tucumán -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1508873696983-2df57046475a?auto=format&fit=crop&w=800&q=80" 
                  alt="Proyecto Solar Maternidad Tucumán" 
@@ -376,7 +396,7 @@
         </div>
 
         <!-- Proyecto 2: Laboratorio en Catamarca -->
-        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1558441719-8b489c63f771?auto=format&fit=crop&w=800&q=80" 
                  alt="Planta fotovoltaica laboratorio Catamarca" 
@@ -402,7 +422,7 @@
         </div>
 
         <!-- Proyecto 3: Nave Industrial -->
-        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=800&q=80" 
                  alt="Nave Industrial Solar" 
@@ -428,7 +448,7 @@
         </div>
 
         <!-- Proyecto 4: Vivienda Unifamiliar -->
-        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=800&q=80" 
                  alt="Vivienda Unifamiliar Solar" 
@@ -454,7 +474,7 @@
         </div>
 
         <!-- Proyecto 5: Vivienda Fin de Semana Híbrido -->
-        <div class="bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between">
           <div class="relative aspect-video overflow-hidden">
             <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=800&q=80" 
                  alt="Vivienda fin de semana híbrido" 
@@ -479,8 +499,160 @@
           </div>
         </div>
 
-        <!-- Tarjeta Call to Action / Banner integrado -->
-        <div class="bg-brand-yellow text-black p-8 rounded-lg flex flex-col justify-between shadow-xl">
+        <!-- [Parte 7] Tarjeta Amarilla de Conversión -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-yellow text-black p-8 rounded-lg flex flex-col justify-between shadow-xl">
+          <div>
+            <div class="w-12 h-12 rounded bg-black/10 flex items-center justify-center mb-6">
+              <i data-lucide="zap" class="w-7 h-7 text-black"></i>
+            </div>
+            <span class="font-heading font-extrabold text-xs uppercase tracking-wider text-black/80">Soluciones a Medida</span>
+            <h3 class="font-heading font-black text-2xl uppercase mt-2 leading-tight">
+              Cada proyecto es único. Cada solución también.
+            </h3>
+            <p class="text-sm mt-3 text-black/80 font-medium leading-relaxed">
+              Realizamos el relevamiento en tu planta o domicilio y calculamos tu período exacto de amortización sin cargo.
+            </p>
+          </div>
+          <div class="mt-8">
+            <a href="#contacto" class="block w-full bg-black hover:bg-neutral-900 text-white font-heading font-bold text-xs uppercase py-4 rounded text-center tracking-wider transition-all">
+              Hablemos de tu Proyecto
+            </a>
+          </div>
+        </div>
+
+        <!-- ================= LOOP 2 (Duplicado para desplazamiento continuo infinito) ================= -->
+        <!-- Proyecto 1 (Duplicado) -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between" aria-hidden="true">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1508873696983-2df57046475a?auto=format&fit=crop&w=800&q=80" 
+                 alt="Proyecto Solar Maternidad Tucumán" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-brand-yellow text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Salud Pública · Gran Escala
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Maternidad de Tucumán — 300 kWp
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema solar fotovoltaico de alta potencia para abastecimiento crítico hospitalario. Generación continua, reducción sustancial de costos operativos e inyección controlada.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>San Miguel de Tucumán</span>
+              <span>300 kWp On-Grid</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 (Duplicado) -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between" aria-hidden="true">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558441719-8b489c63f771?auto=format&fit=crop&w=800&q=80" 
+                 alt="Planta fotovoltaica laboratorio Catamarca" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-brand-yellow text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Laboratorio · Industrial
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Laboratorio Farmacéutico — 40 kWp
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Instalación solar con monitoreo inteligente de consumos para industria de procesos continuos. Garantía de continuidad operativa y mitigación de fluctuaciones de red.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Catamarca</span>
+              <span>40 kWp Comercial</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 (Duplicado) -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between" aria-hidden="true">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=800&q=80" 
+                 alt="Nave Industrial Solar" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-brand-yellow text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Nave Industrial
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Nave Industrial — 50 kW On-Grid
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema On-Grid sin inyección a la red, cubriendo el 90% del uso diario de operación en horario productivo. Cero costo de baterías agregadas.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Parque Industrial Tucumán</span>
+              <span>Ahorro 90% Diurno</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 4 (Duplicado) -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between" aria-hidden="true">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=800&q=80" 
+                 alt="Vivienda Unifamiliar Solar" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-white text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Vivienda Unifamiliar
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Residencial — 3 kW On-Grid
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema On-Grid residencial con ahorro estimado de más del 40% en la factura eléctrica mensual. Sin mantenimiento y con monitoreo remoto en smartphone.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Yerba Buena, Tucumán</span>
+              <span>Ahorro Mensual 40%+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 5 (Duplicado) -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-card rounded-lg overflow-hidden border border-brand-cardBorder group hover:border-brand-yellow/60 transition-all flex flex-col justify-between" aria-hidden="true">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=800&q=80" 
+                 alt="Vivienda fin de semana híbrido" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="absolute top-3 left-3 bg-white text-black font-heading font-bold text-[10px] uppercase px-2.5 py-1 rounded tracking-wider shadow">
+              Vivienda Fin de Semana
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-heading font-bold text-lg text-white group-hover:text-brand-yellow transition-colors">
+                Sistema Híbrido — 5 kW con LiFePO4
+              </h3>
+              <p class="mt-2 text-xs text-gray-400 leading-relaxed">
+                Sistema híbrido con acumulación en baterías de Litio Ferro-Fosfato (LiFePO4). 100% de cobertura y autonomía absoluta ante cortes de energía en la zona.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-brand-yellow font-semibold">
+              <span>Tafí del Valle, Tucumán</span>
+              <span>Autonomía 24/7</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta Amarilla (Duplicada) -->
+        <div class="w-[320px] sm:w-[380px] shrink-0 bg-brand-yellow text-black p-8 rounded-lg flex flex-col justify-between shadow-xl" aria-hidden="true">
           <div>
             <div class="w-12 h-12 rounded bg-black/10 flex items-center justify-center mb-6">
               <i data-lucide="zap" class="w-7 h-7 text-black"></i>
@@ -501,9 +673,11 @@
         </div>
 
       </div>
+    </div>
 
-      <!-- Banner Calidad Garantizada -->
-      <div class="mt-10 p-6 rounded-lg bg-brand-card border border-brand-cardBorder flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+    <!-- Banner Calidad Garantizada -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      <div class="p-6 rounded-lg bg-brand-card border border-brand-cardBorder flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
         <div class="w-12 h-12 rounded-full bg-brand-yellow/10 flex items-center justify-center text-brand-yellow shrink-0">
           <i data-lucide="shield-check" class="w-6 h-6"></i>
         </div>
@@ -512,6 +686,8 @@
           <p class="text-xs text-gray-400 mt-0.5">Todos nuestros trabajos cuentan con garantía extendida, materiales de primera línea certificados internacionalmente e ingeniería de respaldo matriculada.</p>
         </div>
       </div>
+    </div>
+  </section>
 
     </div>
   </section>
