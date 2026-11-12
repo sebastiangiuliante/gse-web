@@ -71,25 +71,18 @@
   <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Logo GSE -->
-      <a href="#inicio" class="flex items-center gap-3 group">
-        <img src="assets/logo-icon.png" alt="Giuliante Logo" class="h-10 w-auto object-contain drop-shadow-md">
-        <div class="flex flex-col">
-          <span class="font-heading font-black tracking-widest text-lg leading-tight group-hover:text-brand-yellow transition-colors text-white">GIULIANTE</span>
-          <div class="flex items-center gap-1.5">
-            <span class="h-[2px] w-4 bg-brand-yellow"></span>
-            <span class="text-[9px] tracking-wider text-gray-300 uppercase font-semibold">Soluciones Energéticas</span>
-            <span class="h-[2px] w-4 bg-brand-yellow"></span>
-          </div>
-        </div>
+      <!-- Logo GSE (Icono + Palabras sin fondo) -->
+      <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <img src="assets/logo-icon-transparent.png" alt="Logo GSE" class="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
+        <img src="assets/logo-text-transparent.png" alt="Giuliante Soluciones Energéticas" class="h-6 sm:h-8 w-auto object-contain">
       </a>
 
-      <!-- Desktop Menu Links -->
+      <!-- Desktop Menu Links (Nuevo Orden: Inicio, Servicios, Nosotros, Proyectos, Contacto) -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider text-gray-300">
         <a href="#inicio" class="hover:text-brand-yellow transition-colors">Inicio</a>
         <a href="#servicios" class="hover:text-brand-yellow transition-colors">Servicios</a>
-        <a href="#proyectos" class="hover:text-brand-yellow transition-colors">Proyectos</a>
         <a href="#nosotros" class="hover:text-brand-yellow transition-colors">Nosotros</a>
+        <a href="#proyectos" class="hover:text-brand-yellow transition-colors">Proyectos</a>
         <a href="#contacto" class="hover:text-brand-yellow transition-colors">Contacto</a>
       </nav>
 
@@ -100,10 +93,18 @@
         </a>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button id="mobileMenuBtn" aria-label="Abrir Menú" class="md:hidden text-white hover:text-brand-yellow p-2 focus:outline-none">
-        <i data-lucide="menu" class="w-7 h-7"></i>
-      </button>
+      <!-- Mobile Actions (WhatsApp Directo + Botón Menú) -->
+      <div class="flex items-center gap-2 md:hidden">
+        <a href="https://wa.me/5493813005341?text=Hola%20Giuliante%20Soluciones%20Energ%C3%A9ticas,%20quisiera%20solicitar%20un%20presupuesto." 
+           target="_blank" rel="noopener"
+           aria-label="Contactar por WhatsApp"
+           class="p-1 hover:scale-110 transition-transform">
+          <img src="assets/whatsapp-icon.webp" alt="WhatsApp" class="w-8 h-8 object-contain">
+        </a>
+        <button id="mobileMenuBtn" aria-label="Abrir Menú" class="text-white hover:text-brand-yellow p-1.5 focus:outline-none">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Drawer -->
@@ -111,8 +112,8 @@
       <nav class="flex flex-col gap-4 text-base font-semibold uppercase">
         <a href="#inicio" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Inicio</a>
         <a href="#servicios" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Servicios</a>
-        <a href="#proyectos" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Proyectos</a>
         <a href="#nosotros" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Nosotros</a>
+        <a href="#proyectos" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Proyectos</a>
         <a href="#contacto" class="mobile-link text-gray-200 hover:text-brand-yellow py-1">Contacto</a>
         <a href="#contacto" class="mobile-link mt-2 bg-brand-yellow text-black font-heading font-bold text-center py-3 rounded text-sm uppercase">
           Solicitar Presupuesto
@@ -122,48 +123,48 @@
   </header>
 
   <!-- ================= HERO SECTION ================= -->
-  <section id="inicio" class="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden min-h-[92vh] flex flex-col justify-between">
-    <!-- Imagen de fondo con paneles solares y atardecer oficial (foco en paneles para celulares) -->
+  <section id="inicio" class="relative pt-24 pb-10 md:pt-28 md:pb-14 overflow-hidden flex flex-col justify-between">
+    <!-- Imagen de fondo oficial PARQUE-FOTOVOLTAICO-2048x1367.jpg -->
     <div class="absolute inset-0 z-0">
-      <img src="assets/hero-solar.jpg" 
+      <img src="assets/parque-fotovoltaico.jpg" 
            alt="Parque Solar Fotovoltaico Giuliante" 
            class="w-full h-full object-cover object-[80%_bottom] md:object-center brightness-75 transition-all duration-700">
       <div class="absolute inset-0 bg-hero-overlay"></div>
     </div>
 
-    <!-- Contenido Principal Hero -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-4 md:mt-8">
+    <!-- Contenido Principal Hero (Espaciado ajustado para eliminar hueco vacío) -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-2 md:mt-4">
       
       <!-- Ubicación / Badge -->
-      <div class="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-widest text-brand-yellow font-heading font-bold mb-4">
+      <div class="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-widest text-brand-yellow font-heading font-bold mb-3">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
         <span>SAN MIGUEL DE TUCUMÁN · ARGENTINA</span>
       </div>
 
       <!-- Título Principal Impactante -->
-      <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl uppercase leading-tight tracking-tight max-w-4xl text-white">
+      <h1 class="font-heading font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl uppercase leading-tight tracking-tight max-w-4xl text-white">
         ENERGÍA QUE <span class="text-white">PRODUCE</span><br>
         <span class="text-brand-yellow text-stroke-yellow">INGENIERÍA QUE RESPONDE</span>
       </h1>
 
       <!-- Bajada / Subtítulo -->
-      <p class="mt-6 text-gray-300 text-base sm:text-xl max-w-2xl font-normal leading-relaxed">
+      <p class="mt-4 md:mt-6 text-gray-300 text-sm sm:text-lg md:text-xl max-w-2xl font-normal leading-relaxed">
         Soluciones eléctricas y fotovoltaicas a medida de tus necesidades. Desde proyectos residenciales e industriales hasta instalaciones utility de gran escala.
       </p>
 
       <!-- Botones de Acción (CTAs) -->
-      <div class="mt-8 flex flex-col sm:flex-row gap-4 sm:items-center">
-        <a href="#contacto" class="bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-bold px-8 py-4 rounded text-sm uppercase tracking-wider text-center shadow-lg shadow-brand-yellow/20 transition-all hover:scale-105">
+      <div class="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 sm:items-center">
+        <a href="#contacto" class="bg-brand-yellow hover:bg-brand-yellowHover text-black font-heading font-bold px-8 py-3.5 sm:py-4 rounded text-sm uppercase tracking-wider text-center shadow-lg shadow-brand-yellow/20 transition-all hover:scale-105">
           Solicitar Asesoramiento
         </a>
-        <a href="#servicios" class="border border-white/40 hover:border-brand-yellow hover:text-brand-yellow text-white font-heading font-semibold px-8 py-4 rounded text-sm uppercase tracking-wider text-center transition-all bg-black/20 backdrop-blur-sm">
+        <a href="#servicios" class="border border-white/40 hover:border-brand-yellow hover:text-brand-yellow text-white font-heading font-semibold px-8 py-3.5 sm:py-4 rounded text-sm uppercase tracking-wider text-center transition-all bg-black/20 backdrop-blur-sm">
           Ver Servicios
         </a>
       </div>
     </div>
 
     <!-- ================= 4 SERVICIOS CLAVE (OVERLAY SOBRE EL HERO) ================= -->
-    <div id="servicios" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-16 md:mt-24">
+    <div id="servicios" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-8 md:mt-12">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
         <!-- Tarjeta 1: Energía Fotovoltaica -->
@@ -246,8 +247,8 @@
         <div class="flex items-center justify-center gap-3">
           <i data-lucide="compass" class="w-6 h-6 text-brand-yellowHover shrink-0"></i>
           <div class="text-left">
-            <span class="block font-heading font-extrabold text-lg leading-tight">COBERTURA NOA</span>
-            <span class="text-[11px] font-semibold text-gray-600 uppercase">Tucumán, Catamarca y región</span>
+            <span class="block font-heading font-extrabold text-lg leading-tight">ZONA DE COBERTURA</span>
+            <span class="text-[11px] font-semibold text-gray-600 uppercase">NOA y NEA</span>
           </div>
         </div>
 
@@ -740,25 +741,18 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10">
-        <!-- Logo Footer -->
-        <div class="flex items-center gap-3">
-          <img src="assets/logo-icon.png" alt="Giuliante Logo" class="h-9 w-auto object-contain">
-          <div>
-            <span class="font-heading font-black text-white text-base tracking-widest block leading-tight">GIULIANTE</span>
-            <div class="flex items-center gap-1.5">
-              <span class="h-[1.5px] w-3 bg-brand-yellow"></span>
-              <span class="text-[9px] text-gray-400 tracking-wider uppercase font-semibold">Soluciones Energéticas · Tucumán</span>
-              <span class="h-[1.5px] w-3 bg-brand-yellow"></span>
-            </div>
-          </div>
+        <!-- Logo Footer (Icono + Palabras sin fondo) -->
+        <div class="flex items-center gap-2.5 sm:gap-3">
+          <img src="assets/logo-icon-transparent.png" alt="Logo GSE" class="h-9 w-auto object-contain">
+          <img src="assets/logo-text-transparent.png" alt="Giuliante Soluciones Energéticas" class="h-6 w-auto object-contain">
         </div>
 
-        <!-- Enlaces Footer -->
+        <!-- Enlaces Footer (Orden actualizado) -->
         <nav class="flex flex-wrap justify-center gap-6 text-gray-400 font-semibold uppercase">
           <a href="#inicio" class="hover:text-brand-yellow transition-colors">Inicio</a>
           <a href="#servicios" class="hover:text-brand-yellow transition-colors">Servicios</a>
-          <a href="#proyectos" class="hover:text-brand-yellow transition-colors">Proyectos</a>
           <a href="#nosotros" class="hover:text-brand-yellow transition-colors">Nosotros</a>
+          <a href="#proyectos" class="hover:text-brand-yellow transition-colors">Proyectos</a>
           <a href="#contacto" class="hover:text-brand-yellow transition-colors">Contacto</a>
         </nav>
       </div>
